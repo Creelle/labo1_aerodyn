@@ -31,7 +31,7 @@ h = np.array([14.2, 15.5, 16.1, 16.0, 15.2, 9.9, 3.8, -3.1, -10.3, -15.7, -18.2,
 rho_water = 1000.0 # [kg/m^3]
 delta_p_dyn = rho_water*g*h*1e-3 # [Pa]
 rho_air = 1.204 # [kg/m^3]
-nu_air = 1.516e-5 # [m^2/s]
+nu_air = 1.506e-5 # [m^2/s]
 
 #interpolation of a parabole
 coef2 = np.polyfit(angles[0:4], delta_p_dyn[0:4],2)
