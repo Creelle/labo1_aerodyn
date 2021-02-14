@@ -40,6 +40,16 @@ x_max = -coef2[1]/(2*coef2[0]) #summit of the parabole
 print('summit of the parabole : ',x_max)#rad # Attention on oppose le signe
 
 #1) dynamic pressure of the inflow # At the stagnation point p_tot = p_stat At the pitot tube p_tot = p_stat + 0.5*rho*u^2 <==> we can find u
+p_dyn_max = max(y_p)
+
+rho_air = 1.204 #[kg/m^3]
+nu_air = 1.516e-5 #[m^2/s]
+u_inf = np.sqrt(2*p_dyn_max/rho_air)
+
+Re_d = u_inf*D/nu_air
+
+print('Speed infinity, ', u_inf, ' [m/s]')
+print('Reynolds number ,', Re_d)
 
 
 #graphics
