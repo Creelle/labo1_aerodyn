@@ -55,7 +55,7 @@ print('Reynolds number ,', Re_d)
 #Cd with the balance
 
 Cd_bal = Fd/(0.5*rho_air*u_inf**2*D*l)
-print(Cd_bal,'Cd with the balance')
+print('Cd with the balance',Cd_bal)
 
 #graphics
 
