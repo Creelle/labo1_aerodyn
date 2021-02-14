@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 M_d = np.array([0.0, 0.0682, 0.1816, 0.295, 0.4084, 0.5218, 0.7485, 0.9753, 1.4289]) # [kg]
 U_d = np.array([0.619, 0.928, 1.456, 1.987, 2.506, 3.035, 4.095, 5.138, 7.163]) + 0.648-0.619 # [V]
-coef = np.polyfit(M_d, U_d, 1)
+coef = np.polyfit(U_d, M_d, 1)
 
 fun = np.poly1d(coef)
 
@@ -41,6 +41,7 @@ print('summit of the parabole : ',x_max)#rad # Attention on oppose le signe
 
 #1) dynamic pressure of the inflow # At the stagnation point p_tot = p_stat At the pitot tube p_tot = p_stat + 0.5*rho*u^2 <==> we can find u
 p_dyn_max = max(y_p)
+print(p_dyn_max)
 
 rho_air = 1.204 #[kg/m^3]
 nu_air = 1.516e-5 #[m^2/s]
@@ -51,18 +52,22 @@ Re_d = u_inf*D/nu_air
 print('Speed infinity, ', u_inf, ' [m/s]')
 print('Reynolds number ,', Re_d)
 
+#Cd with the balance
+
+Cd_bal = Fd/(0.5*rho_air*u_inf**2*D*l)
+print(Cd_bal,'Cd with the balance')
 
 #graphics
 
 plt.rcParams.update({'font.size': 22})
 #plt.rc('text', usetex=True)
 
-# fig1 = plt.figure(figsize=(14.0, 8.0))
-# plt.scatter(M_d, U_d, color='royalblue')
-# plt.plot(M_d, U_d)
-# plt.grid()
-# plt.xlabel(r'$Hung$ $mass$ $[kg]$')
-# plt.ylabel(r'$Tension$ $[V]$')
+fig1 = plt.figure(figsize=(14.0, 8.0))
+plt.scatter(U_d, M_d, color='royalblue')
+plt.plot(U_d, M_d)
+plt.grid()
+plt.ylabel(r'$Hung$ $mass$ $[kg]$')
+plt.xlabel(r'$Tension$ $[V]$')
 
 fig2 = plt.figure(figsize=(14.0, 8.0))
 plt.scatter(angles, delta_p_dyn, color='royalblue')
