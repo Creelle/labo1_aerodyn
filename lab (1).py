@@ -30,6 +30,7 @@ h = np.array([14.2, 15.5, 16.1, 16.0, 15.2, 9.9, 3.8, -3.1, -10.3, -15.7, -18.2,
 
 rho_water = 1000.0 # [kg/m^3]
 delta_p_dyn = rho_water*g*h*1e-3 # [Pa]
+print(1e6,10e-1)
 rho_air = 1.204 # [kg/m^3]
 nu_air = 1.506e-5 # [m^2/s]
 
@@ -38,14 +39,15 @@ coef2 = np.polyfit(angles[0:4], delta_p_dyn[0:4],2)
 x_angles = np.linspace(angles[0], angles[4], 100)
 y_p = np.polyval(coef2, x_angles)
 
+
 x_max = -coef2[1]/(2*coef2[0]) #summit of the parabole
 print('summit of the parabole : ', x_max) #rad # Attention on oppose le signe
 
 #1) dynamic pressure of the inflow # At the stagnation point p_tot = p_stat At the pitot tube p_tot = p_stat + 0.5*rho*u^2 <==> we can find u
-p_dyn_max = max(y_p)
-print('Max dynamic pressure : ', p_dyn_max, ' [Pa]')
+p_max = max(y_p)
+print('Max delta pressure : ', p_max, ' [Pa]')
 
-u_inf = np.sqrt(2*p_dyn_max/rho_air)
+u_inf = np.sqrt(2*p_max/rho_air)
 Re_d = u_inf*D/nu_air
 
 print('Speed infinity, ', u_inf, ' [m/s]')
@@ -83,3 +85,5 @@ plt.grid()
 plt.xlabel(r'$Angle$ $of$ $the$ $cylinder$ $[^\circ]$')
 plt.ylabel(r'$Dynamic$ $pressure$ $[Pa]$')
 plt.show()
+
+#coucou Johnny
