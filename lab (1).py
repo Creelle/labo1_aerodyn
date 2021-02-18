@@ -84,12 +84,12 @@ plt.xlabel(r'$Angle$ $of$ $the$ $cylinder$ $[^\circ]$')
 plt.ylabel(r'$Dynamic$ $pressure$ $[Pa]$')
 
 fig3 = plt.figure(figsize=(14.0, 8.0))
-plt.scatter(angles_new, C_p, color='royalblue',label = 'Experiment')
+plt.scatter(angles_new, C_p, color='royalblue',label = 'Exper')
 plt.plot(theta,C_p_theoretical,'-r',label='Potential flow')
 plt.xlim(0.0,180.0)
 plt.grid()
-plt.xlabel(r'$ \theta [^\circ]$')
-plt.ylabel(r' $C_p(\theta)$')
+plt.xlabel(r'$Angle$ $of$ $the$ $cylinder$ $[^\circ]$')
+plt.ylabel(r'$Pressure$ $coefficient$ $C_p(\theta) = \frac{p(\theta) - p_\infty}{\frac{1}{2} \cdot \rho \cdot U_\infty^2}$')
 plt.legend()
 
 
