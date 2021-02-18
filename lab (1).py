@@ -62,6 +62,16 @@ C_p_theoretical = 1- 4*np.sin(theta*pi/180)**2
 Cd_bal = Fd/(0.5*rho_air*u_inf**2*D*l)
 print('Cd with the balance : ', Cd_bal)
 
+#Cd with only pressure contribution :
+
+dt_little = 5*pi/180 #rad
+dt = 10*pi/180 #rad
+
+C_dp = 0
+C_dp += sum(C_p[2:5]*np.cos(angles[2:5]*pi/180)*dt_little)
+C_dp += sum(C_p[5:]*np.cos(angles[5:]*pi/180)*dt)
+print('C_dp',C_dp,'C_friction', Cd_bal-C_dp)
+
 
 #graphics
 
